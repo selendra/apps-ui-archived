@@ -20,6 +20,7 @@
   "rpc.header.live": "Live networks",
   "rpc.header.test": "Test networks",
   "rpc.hosted.by": "hosted by {{host}}",
+  "rpc.indranet": "Indranet",
   "rpc.kilt": "Mashnet",
   "rpc.kulupu": "Kulupu",
   "rpc.kusama.ava": "Kusama",
