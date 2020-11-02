@@ -68,7 +68,7 @@ const chainLogos: Record<string, any> = [
   ['Tick', chainRococoTick],
   ['Track', chainRococoTrack],
   ['Trick', chainRococoTrick],
-  ['Indracore Testnet', chainSelendra]
+  ['Indranet', chainSelendra]
 ].reduce((logos, [chain, logo]): Record<string, any> => ({
   ...logos,
   [(chain as string).toLowerCase()]: logo
@@ -147,7 +147,7 @@ const namedLogos: Record<string, any> = {
   subsocial: nodeSubsocial,
   substrate: nodeSubstrate,
   westend: nodePolkadot,
-  indranet: chainSelendra
+  Indranet: chainSelendra
 };
 
 // extension logos
