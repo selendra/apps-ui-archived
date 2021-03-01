@@ -35,7 +35,7 @@ function ChainImg ({ className = '', logo, onClick }: Props): React.ReactElement
 }
 
 export default React.memo(styled(ChainImg)`
-  background: white;
+  /* background: white;*/
   border-radius: 50%;
   box-sizing: border-box;
 `);

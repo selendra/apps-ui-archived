@@ -21,7 +21,7 @@ const chainRoccoTick = '#22bb22';
 const chainRoccoTrack = '#bb2222';
 const chainRoccoTrick = '#2222bb';
 const chainWestend = '#da68a7';
-const chainSelendra = '#090D28';
+const chainSelendra = '#1D3442';
 
 // based on node name
 // alphabetical

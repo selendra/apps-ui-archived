@@ -67,7 +67,7 @@ export default React.memo(styled(NetworkDisplay)(({ theme }: ThemeProps) => `
   }
 
   .endpointIcon {
-    height: 24px;
+    height: 34px;
     margin-right: 0.75rem;
     width: 24px;
   }
