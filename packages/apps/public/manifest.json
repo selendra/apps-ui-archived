@@ -1,6 +1,6 @@
 {
-  "short_name": "Indra App",
-  "name": "Indra App",
+  "short_name": "Polkadot Apps",
+  "name": "Apps for interacting with a Polkadot node",
   "icons": [
     {
       "src": "favicon.ico",

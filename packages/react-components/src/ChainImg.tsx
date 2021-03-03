@@ -1,33 +1,38 @@
-// Copyright 2017-2020 @polkadot/apps authors & contributors
+// Copyright 2017-2021 @polkadot/apps authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
-import { chainLogos, emptyLogo, namedLogos, nodeLogos } from '@polkadot/apps-config/ui/logos';
+
+import { chainLogos, emptyLogos, namedLogos, nodeLogos } from '@polkadot/apps-config';
 import { useApi } from '@polkadot/react-hooks';
 
 interface Props {
   className?: string;
+  isInline?: boolean;
   logo?: keyof typeof namedLogos;
   onClick?: () => any;
+  withoutHl?: boolean;
 }
 
 function sanitize (value?: string): string {
   return value?.toLowerCase().replace('-', ' ') || '';
 }
 
-function ChainImg ({ className = '', logo, onClick }: Props): React.ReactElement<Props> {
+function ChainImg ({ className = '', isInline, logo, onClick, withoutHl }: Props): React.ReactElement<Props> {
   const { systemChain, systemName } = useApi();
   const [isEmpty, img] = useMemo((): [boolean, string] => {
-    const found: unknown = namedLogos[logo || ''] || chainLogos[sanitize(systemChain)] || nodeLogos[sanitize(systemName)];
+    const found = logo
+      ? namedLogos[logo]
+      : chainLogos[sanitize(systemChain)] || nodeLogos[sanitize(systemName)];
 
-    return [!found || logo === 'empty', (found || emptyLogo) as string];
+    return [!found || logo === 'empty', (found || emptyLogos.empty) as string];
   }, [logo, systemChain, systemName]);
 
   return (
     <img
       alt='chain logo'
-      className={`${className}${isEmpty ? ' ' : ''}`}
+      className={`${className}${(isEmpty && !withoutHl) ? '' : ''}${isInline ? ' isInline' : ''}`}
       onClick={onClick}
       src={img}
     />
@@ -35,7 +40,15 @@ function ChainImg ({ className = '', logo, onClick }: Props): React.ReactElement
 }
 
 export default React.memo(styled(ChainImg)`
-  /* background: white;*/
+  background: white;
   border-radius: 50%;
   box-sizing: border-box;
+
+  &.isInline {
+    display: inline-block;
+    height: 34px;
+    margin-right: 0.75rem;
+    vertical-align: middle;
+    width: 24px;
+  }
 `);

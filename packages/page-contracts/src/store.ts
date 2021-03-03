@@ -1,14 +1,14 @@
-// Copyright 2017-2020 @polkadot/app-contracts authors & contributors
+// Copyright 2017-2021 @polkadot/app-contracts authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { Hash } from '@polkadot/types/interfaces';
-import { CodeJson, CodeStored } from './types';
+import type { Hash } from '@polkadot/types/interfaces';
+import type { CodeJson, CodeStored } from './types';
 
 import EventEmitter from 'eventemitter3';
 import store from 'store';
+
 import { Abi } from '@polkadot/api-contract';
-import { api, registry } from '@polkadot/react-api';
-import { createType } from '@polkadot/types';
+import { api } from '@polkadot/react-api';
 
 const KEY_CODE = 'code:';
 
@@ -23,19 +23,20 @@ class Store extends EventEmitter {
     return Object.values(this.allCode);
   }
 
-  public getCode (codeHash: string): CodeStored {
+  public getCode (codeHash: string): CodeStored | undefined {
     return this.allCode[codeHash];
   }
 
   // eslint-disable-next-line @typescript-eslint/require-await
   public async saveCode (codeHash: string | Hash, partial: Partial<CodeJson>): Promise<void> {
-    const hex = (typeof codeHash === 'string' ? createType(registry, 'Hash', codeHash) : codeHash).toHex();
+    const hex = (typeof codeHash === 'string' ? api.registry.createType('Hash', codeHash) : codeHash).toHex();
     const existing = this.getCode(hex);
     const json = {
       ...(existing ? existing.json : {}),
       ...partial,
       codeHash: hex,
-      genesisHash: api.genesisHash.toHex()
+      genesisHash: api.genesisHash.toHex(),
+      whenCreated: existing?.json.whenCreated || Date.now()
     };
     const key = `${KEY_CODE}${json.codeHash}`;
 
@@ -71,7 +72,7 @@ class Store extends EventEmitter {
     try {
       this.allCode[json.codeHash] = {
         contractAbi: json.abi
-          ? new Abi(json.abi)
+          ? new Abi(json.abi, api.registry.getChainProperties())
           : undefined,
         json
       };

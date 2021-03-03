@@ -1,19 +1,20 @@
-// Copyright 2017-2020 @polkadot/app-accounts authors & contributors
+// Copyright 2017-2021 @polkadot/app-accounts authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { KeypairType } from '@polkadot/util-crypto/types';
+import type { KeypairType } from '@polkadot/util-crypto/types';
 
 import React from 'react';
+
 import { AddressRow, Modal, Static } from '@polkadot/react-components';
 import { isHex } from '@polkadot/util';
 
 import { useTranslation } from '../translate';
 
 interface Props {
-  address: string;
+  address?: string;
   derivePath: string;
   isBusy: boolean;
-  name: string;
+  name?: string;
   pairType: KeypairType;
   seed?: string;
 }
@@ -30,12 +31,12 @@ function CreateConfirmation ({ address, derivePath, name, pairType, seed }: Prop
     <Modal.Content>
       <Modal.Columns>
         <Modal.Column>
-          <AddressRow
+          {address && name && <AddressRow
             defaultName={name}
             isInline
             noDefaultNameOpacity
             value={address}
-          />
+          />}
           {shortSeed && (
             <Static
               label={t<string>('partial seed')}

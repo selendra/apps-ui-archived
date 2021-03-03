@@ -1,18 +1,20 @@
-// Copyright 2017-2020 @polkadot/app-staking authors & contributors
+// Copyright 2017-2021 @polkadot/app-staking authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { Codec } from '@polkadot/types/types';
-import { CodeStored } from '../types';
+import type { Option } from '@polkadot/types';
+import type { Codec } from '@polkadot/types/types';
+import type { CodeStored } from '../types';
 
 import React, { useCallback } from 'react';
-import { Button, Card, Forget } from '@polkadot/react-components';
+import styled from 'styled-components';
+
+import { Button, Card, CopyButton, Forget } from '@polkadot/react-components';
 import { useApi, useCall, useToggle } from '@polkadot/react-hooks';
-import { Option } from '@polkadot/types';
 
 import { CodeRow, Messages } from '../shared';
 import store from '../store';
-import useAbi from '../useAbi';
 import { useTranslation } from '../translate';
+import useAbi from '../useAbi';
 
 interface Props {
   className?: string;
@@ -85,6 +87,10 @@ function Code ({ className, code, onShowDeploy }: Props): React.ReactElement<Pro
           withConstructors
         />
       </td>
+      <td className='together codeHash'>
+        <div>{`${code.json.codeHash.substr(0, 8)}…${code.json.codeHash.slice(-6)}`}</div>
+        <CopyButton value={code.json.codeHash} />
+      </td>
       <td className='start together'>
         {optCode && (
           optCode.isSome ? t<string>('Available') : t<string>('Not on-chain')
@@ -107,4 +113,15 @@ function Code ({ className, code, onShowDeploy }: Props): React.ReactElement<Pro
   );
 }
 
-export default React.memo(Code);
+export default React.memo(styled(Code)`
+  .codeHash {
+    div {
+      display: inline;
+
+      &:first-child {
+        font-family: monospace;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+`);

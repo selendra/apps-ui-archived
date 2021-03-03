@@ -1,10 +1,11 @@
-// Copyright 2017-2020 @polkadot/apps authors & contributors
+// Copyright 2017-2021 @polkadot/apps authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import { RuntimeVersion } from '@polkadot/types/interfaces';
+import type { RuntimeVersion } from '@polkadot/types/interfaces';
 
 import React from 'react';
 import styled from 'styled-components';
+
 import { ChainImg, Icon } from '@polkadot/react-components';
 import { useApi, useCall, useIpfs, useToggle } from '@polkadot/react-hooks';
 import { BestNumber, Chain } from '@polkadot/react-query';
@@ -18,11 +19,11 @@ interface Props {
 
 function ChainInfo ({ className }: Props): React.ReactElement<Props> {
   const { t } = useTranslation();
-  const { api } = useApi();
-  const runtimeVersion = useCall<RuntimeVersion>(api.rpc.state.subscribeRuntimeVersion);
+  const { api, isApiReady } = useApi();
+  const runtimeVersion = useCall<RuntimeVersion>(isApiReady && api.rpc.state.subscribeRuntimeVersion);
   const { ipnsChain } = useIpfs();
   const [isEndpointsVisible, toggleEndpoints] = useToggle();
-  const canToggle = !ipnsChain; 
+  const canToggle = !ipnsChain;
 
   return (
     <div className={className}>
@@ -30,7 +31,7 @@ function ChainInfo ({ className }: Props): React.ReactElement<Props> {
         className={`apps--SideBar-logo-inner${canToggle ? ' isClickable' : ''} highlight--color-contrast`}
         onClick={toggleEndpoints}
       >
-        <div className='logo--chain'>
+        <div className='chain--logo'>
           <ChainImg />
         </div>
         <div className='info media--1000'>
@@ -70,7 +71,8 @@ export default React.memo(styled(ChainInfo)`
     &.isClickable {
       cursor: pointer;
     }
-    .logo--chain {
+
+    .chain--logo {
       width: 3rem;
       height: 3rem;
       background: #fff;
@@ -79,6 +81,7 @@ export default React.memo(styled(ChainInfo)`
       align-items: center;
       justify-content: center;
     }
+
     img {
       height: 34px;
       // margin-right: 0.5rem;

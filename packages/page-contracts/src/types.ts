@@ -1,7 +1,8 @@
-// Copyright 2017-2020 @polkadot/app-contracts authors & contributors
+// Copyright 2017-2021 @polkadot/app-contracts authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import BN from 'bn.js';
+
 import { Abi } from '@polkadot/api-contract';
 
 export interface CodeJson {
@@ -10,6 +11,7 @@ export interface CodeJson {
   name: string;
   genesisHash: string;
   tags: string[];
+  whenCreated: number;
 }
 
 export interface CodeStored {
@@ -26,9 +28,11 @@ export interface ContractJsonOld {
 
 export interface UseWeight {
   executionTime: number;
+  isEmpty: boolean;
   isValid: boolean;
   megaGas: BN;
   percentage: number;
+  setIsEmpty: React.Dispatch<boolean>
   setMegaGas: React.Dispatch<BN | undefined>;
   weight: BN;
 }
