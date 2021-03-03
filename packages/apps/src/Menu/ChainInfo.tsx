@@ -22,7 +22,7 @@ function ChainInfo ({ className }: Props): React.ReactElement<Props> {
   const runtimeVersion = useCall<RuntimeVersion>(api.rpc.state.subscribeRuntimeVersion);
   const { ipnsChain } = useIpfs();
   const [isEndpointsVisible, toggleEndpoints] = useToggle();
-  const canToggle = !ipnsChain;
+  const canToggle = !ipnsChain; 
 
   return (
     <div className={className}>
@@ -30,7 +30,9 @@ function ChainInfo ({ className }: Props): React.ReactElement<Props> {
         className={`apps--SideBar-logo-inner${canToggle ? ' isClickable' : ''} highlight--color-contrast`}
         onClick={toggleEndpoints}
       >
-        <ChainImg />
+        <div className='logo--chain'>
+          <ChainImg />
+        </div>
         <div className='info media--1000'>
           <Chain className='chain' />
           {runtimeVersion && (
@@ -68,11 +70,19 @@ export default React.memo(styled(ChainInfo)`
     &.isClickable {
       cursor: pointer;
     }
-
+    .logo--chain {
+      width: 3rem;
+      height: 3rem;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     img {
-      height: 40px;
-      margin-right: 0.5rem;
-      width: 2rem;
+      height: 34px;
+      // margin-right: 0.5rem;
+      width: 1.8rem;
     }
 
     .ui--Icon.dropdown,
