@@ -9,7 +9,7 @@ import BN from 'bn.js';
 import { useMemo } from 'react';
 
 import { calcInflation, useAccounts, useApi, useCall } from '@polkadot/react-hooks';
-import { arrayFlatten, BN_HUNDRED, BN_MAX_INTEGER, BN_ONE, BN_ZERO } from '@polkadot/util';
+import { arrayFlatten, BN_ONE, BN_ZERO } from '@polkadot/util';
 
 interface LastEra {
   activeEra: BN;

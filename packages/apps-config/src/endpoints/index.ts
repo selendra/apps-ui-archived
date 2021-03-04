@@ -4,7 +4,7 @@
 import type { TFunction } from 'i18next';
 import type { LinkOption } from '../settings/types';
 
-import { createCustom, createDev, createOwn } from './development';
+import { createCustom, createDev } from './development';
 // import { createProduction } from './production';
 import { createTesting } from './testing';
 // import { createRococo } from './testingRococo';
