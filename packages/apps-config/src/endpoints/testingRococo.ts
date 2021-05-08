@@ -4,7 +4,7 @@
 import type { TFunction } from 'i18next';
 import type { LinkOption } from '../settings/types';
 
-import { ROCOCO_GENESIS } from '../api/constants';
+// import { ROCOCO_GENESIS } from '../api/constants';
 import { expandEndpoints } from './util';
 
 /* eslint-disable sort-keys */
