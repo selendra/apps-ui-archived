@@ -90,15 +90,16 @@ export function createProduction (t: TFunction): LinkOption[] {
     //   info: 'edgeware',
     //   text: t('rpc.edgeware', 'Edgeware', { ns: 'apps-config' }),
     //   providers: {
-    //     'Commonwealth Labs': 'wss://mainnet4.edgewa.re',
-    //     'Patract Elara': 'wss://edgeware.elara.patract.io'
+    //     'Commonwealth Labs': 'wss://mainnet1.edgewa.re',
+    //     'Patract Elara': 'wss://edgeware.elara.patract.io',
+    //     OnFinality: 'wss://edgeware.api.onfinality.io/public-ws'
     //   }
     // },
     // {
     //   info: 'equilibrium',
     //   text: t('rpc.equilibrium', 'Equilibrium', { ns: 'apps-config' }),
     //   providers: {
-    //     Equilibrium: 'wss://tge.equilibrium.io'
+    //     Equilibrium: 'wss://node.equilibrium.io'
     //   }
     // },
     // {
@@ -113,7 +114,8 @@ export function createProduction (t: TFunction): LinkOption[] {
     //   text: t('rpc.hydra', 'HydraDX', { ns: 'apps-config' }),
     //   providers: {
     //     HydraDX: 'wss://rpc-01.snakenet.hydradx.io',
-    //     'Galactic Council': 'wss://rpc-02.snakenet.hydradx.io'
+    //     'Galactic Council': 'wss://rpc-02.snakenet.hydradx.io',
+    //     Archives: 'wss://archive.snakenet.hydradx.io'
     //   }
     // },
     // {
@@ -123,6 +125,13 @@ export function createProduction (t: TFunction): LinkOption[] {
     //   providers: {
     //     Kulupu: 'wss://rpc.kulupu.corepaper.org/ws',
     //     'Patract Elara': 'wss://kulupu.elara.patract.io'
+    //   }
+    // },
+    // {
+    //   info: 'neatcoin',
+    //   text: t('rpc.neatcoin', 'Neatcoin', { ns: 'apps-config' }),
+    //   providers: {
+    //     Neatcoin: 'wss://rpc.neatcoin.org/ws'
     //   }
     // },
     // {
@@ -142,6 +151,20 @@ export function createProduction (t: TFunction): LinkOption[] {
     //   }
     // },
     // {
+    //   info: 'riochain',
+    //   text: t('rpc.riochain', 'RioChain', { ns: 'apps-config' }),
+    //   providers: {
+    //     RioChain: 'wss://node.v1.riochain.io'
+    //   }
+    // },
+    // {
+    //   info: 'sora-substrate',
+    //   text: t('rpc.sora-substrate', 'SORA', { ns: 'apps-config' }),
+    //   providers: {
+    //     Soramitsu: 'wss://ws.sora2.soramitsu.co.jp'
+    //   }
+    // },
+    // {
     //   info: 'stafi',
     //   isDisabled: true, // Cannot find type ChainId
     //   text: t('rpc.stafi', 'Stafi', { ns: 'apps-config' }),
@@ -155,6 +178,13 @@ export function createProduction (t: TFunction): LinkOption[] {
     //   text: t('rpc.subsocial', 'Subsocial', { ns: 'apps-config' }),
     //   providers: {
     //     DappForce: 'wss://rpc.subsocial.network'
+    //   }
+    // },
+    // {
+    //   info: 'westlake',
+    //   text: t('rpc.westlake', 'Westlake', { ns: 'apps-config' }),
+    //   providers: {
+    //     DataHighway: 'wss://westlake.datahighway.com'
     //   }
     // }
   ]);

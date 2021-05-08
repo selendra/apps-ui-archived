@@ -9,7 +9,7 @@ import BN from 'bn.js';
 import { useMemo } from 'react';
 
 import { calcInflation, useAccounts, useApi, useCall } from '@polkadot/react-hooks';
-import { arrayFlatten, BN_ONE, BN_ZERO } from '@polkadot/util';
+import { arrayFlatten, BN_HUNDRED, BN_MAX_INTEGER, BN_ONE, BN_ZERO } from '@polkadot/util';
 
 interface LastEra {
   activeEra: BN;
@@ -125,6 +125,7 @@ function extractSingle (api: ApiPromise, allAccounts: string[], derive: DeriveSt
       commissionPer: validatorPrefs.commission.unwrap().toNumber() / 10_000_000,
       exposure,
       isActive: !skipRewards,
+      isBlocking: !!(validatorPrefs.blocked && validatorPrefs.blocked.isTrue),
       isElected: !isWaitingDerive(derive) && derive.nextElected.some((e) => e.eq(accountId)),
       isFavorite: favorites.includes(key),
       isNominating: (exposure.others || []).reduce((isNominating, indv): boolean => {
@@ -170,15 +171,15 @@ function extractInfo (api: ApiPromise, allAccounts: string[], electedDerive: Der
   const inflation = calcInflation(api, totalStaked, totalIssuance);
 
   // add the explicit stakedReturn
-  // !avgStaked.isZero() && elected.forEach((e): void => {
-  //   if (!e.skipRewards) {
-  //     const adjusted = avgStaked.mul(BN_HUNDRED).imuln(inflation.stakedReturn).div(e.bondTotal);
+  !avgStaked.isZero() && elected.forEach((e): void => {
+    if (!e.skipRewards) {
+      const adjusted = avgStaked.mul(BN_HUNDRED).imuln(inflation.stakedReturn).div(e.bondTotal);
 
-  //     // in some cases, we may have overflows... protect against those
-  //     e.stakedReturn = (adjusted.gt(BN_MAX_INTEGER) ? BN_MAX_INTEGER : adjusted).toNumber() / BN_HUNDRED.toNumber();
-  //     e.stakedReturnCmp = e.stakedReturn * (100 - e.commissionPer) / 100;
-  //   }
-  // });
+      // in some cases, we may have overflows... protect against those
+      e.stakedReturn = (adjusted.gt(BN_MAX_INTEGER) ? BN_MAX_INTEGER : adjusted).toNumber() / BN_HUNDRED.toNumber();
+      e.stakedReturnCmp = e.stakedReturn * (100 - e.commissionPer) / 100;
+    }
+  });
 
   // all validators, calc median commission
   const minNominated = Object.values(nominators).reduce((min: BN, value) => {
@@ -196,9 +197,15 @@ function extractInfo (api: ApiPromise, allAccounts: string[], electedDerive: Der
     : 0;
 
   // ids
-  const electedIds = elected.map(({ key }) => key);
   const waitingIds = waiting.map(({ key }) => key);
-  const validatorIds = arrayFlatten([electedIds, waitingIds]);
+  const validatorIds = arrayFlatten([
+    elected.map(({ key }) => key),
+    waitingIds
+  ]);
+  const nominateIds = arrayFlatten([
+    elected.filter(({ isBlocking }) => !isBlocking).map(({ key }) => key),
+    waiting.filter(({ isBlocking }) => !isBlocking).map(({ key }) => key)
+  ]);
 
   return {
     avgStaked,
@@ -206,6 +213,7 @@ function extractInfo (api: ApiPromise, allAccounts: string[], electedDerive: Der
     lowStaked: activeTotals[0] || BN_ZERO,
     medianComm,
     minNominated,
+    nominateIds,
     nominators: Object.keys(nominators),
     totalIssuance,
     totalStaked,
@@ -228,7 +236,7 @@ export default function useSortedTargets (favorites: string[], withLedger: boole
   const { api } = useApi();
   const { allAccounts } = useAccounts();
   const historyDepth = useCall<BN>(api.query.staking.historyDepth);
-  const totalIssuance = useCall<BN>(api.query.balances.totalIssuance);
+  const totalIssuance = useCall<BN>(api.query.balances?.totalIssuance);
   const electedInfo = useCall<DeriveStakingElected>(api.derive.staking.electedInfo, [{ ...DEFAULT_FLAGS_ELECTED, withLedger }]);
   const waitingInfo = useCall<DeriveStakingWaiting>(api.derive.staking.waitingInfo, [{ ...DEFAULT_FLAGS_WAITING, withLedger }]);
   const lastEraInfo = useCall<LastEra>(api.derive.session.info, undefined, transformEra);

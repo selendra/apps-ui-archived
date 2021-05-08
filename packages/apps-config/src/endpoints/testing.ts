@@ -16,7 +16,6 @@ import { expandEndpoints } from './util';
 
 export function createTesting (t: TFunction): LinkOption[] {
   return expandEndpoints(t, [
-    // alphabetical based on chain name, e.g. Amber, Arcadia, Beresheet, ...
     {
       dnslink: 'indranet',
       info: 'Indranet',
@@ -25,6 +24,7 @@ export function createTesting (t: TFunction): LinkOption[] {
         Indranet: 'wss://rpc-testnet.selendra.org'
       }
     },
+    // // alphabetical based on chain name, e.g. Amber, Arcadia, Beresheet, ...
     // {
     //   info: 'centrifuge',
     //   text: t('rpc.amber', 'Amber', { ns: 'apps-config' }),
@@ -78,15 +78,16 @@ export function createTesting (t: TFunction): LinkOption[] {
     //   info: 'crust',
     //   text: t('rpc.crust.network', 'Crust Maxwell', { ns: 'apps-config' }),
     //   providers: {
-    //     'Crust Network': 'wss://api.crust.network/'
+    //     'Crust Network': 'wss://api.crust.network/',
+    //     'DCloud Foundation': 'wss://api.decloudf.com/'
     //   }
     // },
     // {
     //   info: 'datahighway',
     //   isDisabled: true,
-    //   text: t('rpc.datahighway.harbour', 'Harbour', { ns: 'apps-config' }),
+    //   text: t('rpc.datahighway.spreehafen', 'Spreehafen', { ns: 'apps-config' }),
     //   providers: {
-    //     MXC: 'wss://testnet-harbour.datahighway.com'
+    //     MXC: 'wss://spreehafen.datahighway.com'
     //   }
     // },
     // {
@@ -101,6 +102,13 @@ export function createTesting (t: TFunction): LinkOption[] {
     //   text: t('rpc.dotmog', 'DOTMog', { ns: 'apps-config' }),
     //   providers: {
     //     DOTMog: 'wss://mogiway-01.dotmog.com'
+    //   }
+    // },
+    // {
+    //   info: 'phoenix',
+    //   text: t('rpc.phoenix', 'Phoenix Mashnet', { ns: 'apps-config' }),
+    //   providers: {
+    //     'phoenix Protocol': 'wss://phoenix-ws.coinid.pro/'
     //   }
     // },
     // {
@@ -128,7 +136,7 @@ export function createTesting (t: TFunction): LinkOption[] {
     //   info: 'equilibrium',
     //   text: t('rpc.equilibriumtestnet', 'Equilibrium', { ns: 'apps-config' }),
     //   providers: {
-    //     Equilibrium: 'wss://api.mvp.testnet.equilibrium.io'
+    //     Equilibrium: 'wss://testnet.equilibrium.io'
     //   }
     // },
     // {
@@ -139,10 +147,35 @@ export function createTesting (t: TFunction): LinkOption[] {
     //   }
     // },
     // {
+    //   info: 'rococoGalital',
+    //   paraId: 1230,
+    //   text: t('rpc.rococo.galital', 'Galital PC2', { ns: 'apps-config' }),
+    //   providers: {
+    //     StarkleyTech: 'wss://galital-rpc-testnet.starkleytech.com'
+    //   }
+    // },
+    // {
     //   info: 'galois',
     //   text: t('rpc.galois', 'Galois', { ns: 'apps-config' }),
     //   providers: {
-    //     MathWallet: 'wss://galois.maiziqianbao.net/ws'
+    //     MathWallet: 'wss://galois-hk.maiziqianbao.net/ws',
+    //     'MathWallet Backup': 'wss://galois.maiziqianbao.net/ws'
+    //   }
+    // },
+    // {
+    //   info: 'gamepower',
+    //   text: t('rpc.gamepower', 'GamePower', { ns: 'apps-config' }),
+    //   providers: {
+    //     GamePower: 'wss://gamepower.io'
+    //   }
+    // },
+    // {
+    //   info: 'ipse',
+    //   text: t('rpc.ipse', 'IPSE', { ns: 'apps-config' }),
+    //   providers: {
+    //     'IPSE China': 'wss://testnet-china.ipse.io',
+    //     'IPSE USA': 'wss://testnet-usa.ipse.io',
+    //     'IPSE Europe': 'wss://testnet-europe.ipse.io'
     //   }
     // },
     // {
@@ -157,29 +190,37 @@ export function createTesting (t: TFunction): LinkOption[] {
     //   info: 'acala',
     //   text: t('rpc.mandala', 'Mandala', { ns: 'apps-config' }),
     //   providers: {
-    //     Acala: 'wss://node-6714447553211260928.rz.onfinality.io/ws',
+    //     Acala: 'wss://acala-mandala.api.onfinality.io/public-ws',
     //     'Patract Elara': 'wss://mandala.elara.patract.io'
     //   }
     // },
     // {
     //   info: 'kilt',
-    //   text: t('rpc.kilt', 'Mashnet', { ns: 'apps-config' }),
+    //   text: t('rpc.kilt', 'KILT Mashnet', { ns: 'apps-config' }),
     //   providers: {
     //     'KILT Protocol': 'wss://full-nodes.kilt.io:9944/'
+    //   }
+    // },
+    // {
+    //   info: 'litentry',
+    //   text: t('rpc.litentry.test', 'Litentry Testnet', { ns: 'apps-config' }),
+    //   providers: {
+    //     Litentry: 'wss://testnet.litentry.io'
     //   }
     // },
     // {
     //   info: 'moonbaseAlpha',
     //   text: t('rpc.moonbeam', 'Moonbase Alpha', { ns: 'apps-config' }),
     //   providers: {
-    //     'Moonbeam Network': 'wss://wss.testnet.moonbeam.network'
+    //     'Moonbeam Network': 'wss://wss.testnet.moonbeam.network',
+    //     OnFinality: 'wss://moonbeam-alpha.api.onfinality.io/public-ws'
     //   }
     // },
     // {
     //   info: 'phala',
-    //   text: t('rpc.phala', 'Phala PoC-3', { ns: 'apps-config' }),
+    //   text: t('rpc.phala', 'Phala PoC-4', { ns: 'apps-config' }),
     //   providers: {
-    //     'Phala Network': 'wss://poc3a.phala.network/ws'
+    //     'Phala Network': 'wss://poc4.phala.network/ws'
     //   }
     // },
     // {
@@ -197,15 +238,29 @@ export function createTesting (t: TFunction): LinkOption[] {
     //   }
     // },
     // {
-    //   info: 'sgc',
-    //   text: t('rpc.sgc', 'Sgc', { ns: 'apps-config' }),
+    //   info: 'prism',
+    //   text: t('rpc.prism', 'Prism', { ns: 'apps-config' }),
     //   providers: {
-    //     SGC: 'wss://substrate.org.cn:4443'
+    //     Prism: 'wss://testnet.psm.link'
+    //   }
+    // },
+    // {
+    //   info: 'realis',
+    //   text: t('rpc.realis', 'Realis.Network', { ns: 'apps-config' }),
+    //   providers: {
+    //     'Realis.Network': 'wss://rpc.realis.network/'
+    //   }
+    // },
+    // {
+    //   info: 'riochain',
+    //   text: t('rpc.riochain', 'RioChain', { ns: 'apps-config' }),
+    //   providers: {
+    //     'RioChain Staging': 'wss://node.v1.staging.riochain.io'
     //   }
     // },
     // {
     //   info: 'sora-substrate',
-    //   text: t('rpc.sora-substrate', 'SORA-staging', { ns: 'apps-config' }),
+    //   text: t('rpc.sora-substrate-staging', 'SORA-staging', { ns: 'apps-config' }),
     //   providers: {
     //     Soramitsu: 'wss://ws.stage.sora2.soramitsu.co.jp'
     //   }
@@ -239,19 +294,71 @@ export function createTesting (t: TFunction): LinkOption[] {
     //   }
     // },
     // {
+    //   info: 'vln',
+    //   text: t('rpc.vln', 'Valiu Liquidity Network', { ns: 'apps-config' }),
+    //   providers: {
+    //     Valiu: 'wss://vln.valiu.dev'
+    //   }
+    // },
+    // {
+    //   info: 'vodka',
+    //   text: t('rpc.vodka', 'Vodka', { ns: 'apps-config' }),
+    //   providers: {
+    //     Vodka: 'wss://vodka.rpc.neatcoin.org/ws'
+    //   }
+    // },
+    // {
+    //   info: 'web3games',
+    //   text: t('rpc.web3games', 'Web3Games', { ns: 'apps-config' }),
+    //   providers: {
+    //     Web3Games: 'wss://substrate.org.cn:4443'
+    //   }
+    // },
+    // {
     //   dnslink: 'westend',
     //   info: 'westend',
     //   text: t('rpc.westend', 'Westend', { ns: 'apps-config' }),
     //   providers: {
     //     Parity: 'wss://westend-rpc.polkadot.io',
-    //     'NodeFactory(Vedran)': 'wss://westend.vedran.nodefactory.io/ws'
+    //     'NodeFactory(Vedran)': 'wss://westend.vedran.nodefactory.io/ws',
+    //     'Patract Elara': 'wss://westend.elara.patract.io',
+    //     OnFinality: 'wss://westend.api.onfinality.io/public-ws'
+    //   }
+    // },
+    // {
+    //   info: 'zeitgeist',
+    //   text: t('rpc.zeitgeist', 'Zeitgeist Battery Park', { ns: 'apps-config' }),
+    //   providers: {
+    //     Zeitgeist: 'wss://bp-rpc.zeitgeist.pm'
     //   }
     // },
     // {
     //   info: 'zero',
     //   text: t('rpc.zero', 'Zero', { ns: 'apps-config' }),
     //   providers: {
-    //     ZERO: 'wss://alphaville-0.zero.io'
+    //     ZERO: 'wss://alphaville.zero.io'
+    //   }
+    // },
+    // {
+    //   info: 'mybank',
+    //   text: t('rpc.mybank', 'mybank.network', { ns: 'apps-config' }),
+    //   providers: {
+    //     MYBANK: 'wss://mybank.network/substrate'
+    //   }
+    // },
+    // {
+    //   info: 'unitv',
+    //   text: t('rpc.unitv', 'Unit Network', { ns: 'apps-config' }),
+    //   providers: {
+    //     'Unit Network': 'wss://unitventures.io/'
+    //   }
+    // },
+    // {
+    //   info: 'nftmart',
+    //   text: t('rpc.nftmart', 'NFTMart', { ns: 'apps-config' }),
+    //   providers: {
+    //     NFTMartDev: 'wss://dev-ws.nftmart.io',
+    //     NFTMartStaging: 'wss://staging-ws.nftmart.io'
     //   }
     // }
   ]);
