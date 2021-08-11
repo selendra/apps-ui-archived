@@ -4,7 +4,7 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
-import { chainLogos, emptyLogos, namedLogos, nodeLogos } from '@polkadot/apps-config';
+import { chainLogos, emptyLogos, namedLogos, nodeLogos, specLogos } from '@polkadot/apps-config';
 import { useApi } from '@polkadot/react-hooks';
 
 interface Props {
@@ -20,19 +20,19 @@ function sanitize (value?: string): string {
 }
 
 function ChainImg ({ className = '', isInline, logo, onClick, withoutHl }: Props): React.ReactElement<Props> {
-  const { systemChain, systemName } = useApi();
+  const { specName, systemChain, systemName } = useApi();
   const [isEmpty, img] = useMemo((): [boolean, string] => {
     const found = logo
       ? namedLogos[logo]
-      : chainLogos[sanitize(systemChain)] || nodeLogos[sanitize(systemName)];
+      : chainLogos[sanitize(systemChain)] || nodeLogos[sanitize(systemName)] || specLogos[sanitize(specName)];
 
     return [!found || logo === 'empty', (found || emptyLogos.empty) as string];
-  }, [logo, systemChain, systemName]);
+  }, [logo, specName, systemChain, systemName]);
 
   return (
     <img
       alt='chain logo'
-      className={`${className}${(isEmpty && !withoutHl) ? '' : ''}${isInline ? ' isInline' : ''}`}
+      className={`${className}${(isEmpty && !withoutHl) ? ' highlight--bg' : ''}${isInline ? ' isInline' : ''}`}
       onClick={onClick}
       src={img}
     />
@@ -46,7 +46,7 @@ export default React.memo(styled(ChainImg)`
 
   &.isInline {
     display: inline-block;
-    height: 34px;
+    height: 24px;
     margin-right: 0.75rem;
     vertical-align: middle;
     width: 24px;
