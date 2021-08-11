@@ -52,11 +52,11 @@ export default React.memo(styled(Grouping)`
   position: relative;
 
   .groupHdr {
-    border-radius: 0.25rem 0.25rem 0 0;
-    padding: 1rem 1.25rem 1rem 1.5rem;
-    /* font-size: 1rem;
+    border-radius: 0.25rem;
+    padding: 0.857rem 1.375rem;
+    font-size: 1rem;
     font-weight: 400;
-    line-height: 1.214rem; */
+    line-height: 1.214rem;
 
     > .ui--Icon {
       margin-left: 0.75rem;
@@ -71,14 +71,14 @@ export default React.memo(styled(Grouping)`
   }
 
   .groupMenu {
-    border-radius: 0 0 0.25rem 0.25rem;
+    border-radius: 0.25rem;
     box-shadow: 0 ${SHA_OFF} ${SHA_OFF} -${SHA_OFF} ${SHA_COL}, ${SHA_OFF} 0 ${SHA_OFF} -${SHA_OFF} ${SHA_COL}, -${SHA_OFF} 0 ${SHA_OFF} -${SHA_OFF} ${SHA_COL};
     display: none;
     margin: 0;
     overflow: hidden;
     padding: 0;
     position: absolute;
-    /* top: 2.9rem; */
+    top: 2.9rem;
     z-index: 250;
 
     > li {
