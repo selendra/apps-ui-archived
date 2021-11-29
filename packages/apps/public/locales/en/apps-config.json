@@ -17,6 +17,7 @@
   "rpc.header.westend.relay": "Test Westend & parachains",
   "rpc.hosted.by": "hosted by {{host}}",
   "rpc.hosted.via": "via {{host}}",
+  "rpc.indranet": "Indranet",
   "rpc.kusama.altair": "Altair",
   "rpc.kusama.basilisk": "Basilisk",
   "rpc.kusama.bifrost": "Bifrost",
