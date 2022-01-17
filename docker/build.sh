@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Copyright 2017-2021 @polkadot/apps authors & contributors
+# Copyright 2017-2022 @polkadot/apps authors & contributors
 # This software may be modified and distributed under the terms
 # of the Apache-2.0 license. See the LICENSE file for details.
 
@@ -7,8 +7,8 @@
 set -e
 
 # the docker image name and dockerhub repo
-NAME="polkadot-js-apps"
-REPO="jacogr"
+NAME="selendra-js-apps"
+REPO="selendrachain"
 
 # extract the current npm version from package.json
 VERSION=$(cat package.json \
