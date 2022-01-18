@@ -22,14 +22,19 @@ export function createSelendra (t: TFunction): EndpointOption {
     providers: {
       Selendra: 'wss://rpc1-testnet.selendra.org',
     },
+    teleport: [1000],
     linked: [
+      // (1) all system parachains (none available yet)
+      // ...
+      // (2) all common good parachains
       {
         info: 'Indra',
         paraId: 1000,
         text: t('rpc.selendra.indra', 'Indra', { ns: 'apps-config' }),
         providers: {
           selendra: 'ws://127.0.0.1:9944',
-        }
+        },
+        teleport: [-1]
       },
     ]
   };

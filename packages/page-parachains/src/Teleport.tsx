@@ -177,7 +177,8 @@ function Teleport ({ onClose }: Props): React.ReactElement<Props> | null {
                 />
               </>
             )
-            : (
+            : 
+            (
               <Spinner
                 label={t<string>('Retrieving destination chain fees')}
                 variant='appPadded'
