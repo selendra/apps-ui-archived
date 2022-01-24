@@ -45,6 +45,7 @@ export const nodeColors = Object.entries({
   'selendra': chainSelendra,
   'selendra-Chain': chainSelendra,
   'selendra Testnet': chainSelendra,
+  Indra: chainSelendra,
   'indra-testnet': chainSelendra,
   "indra-parachain": chainSelendra,
 }).reduce<Record<string, string>>((colors, [node, color]) => ({

@@ -21,6 +21,7 @@ export function createSelendraTestnet (t: TFunction): EndpointOption {
     text: t('rpc.selendra.selendra-chain', 'Selendra', { ns: 'apps-config' }),
     providers: {
       Selendra: 'wss://rpc1-testnet.selendra.org',
+      Local: 'ws://127.0.0.1:9944',
     },
     teleport: [1000],
     linked: [
@@ -32,7 +33,8 @@ export function createSelendraTestnet (t: TFunction): EndpointOption {
         paraId: 1000,
         text: t('rpc.selendra.indra', 'Indra', { ns: 'apps-config' }),
         providers: {
-          selendra: 'ws://127.0.0.1:9944',
+          selendra: 'wss://indra-testnet.selendra.org',
+          Local: "ws://127.0.0.1:8844"
         },
         teleport: [-1]
       },
