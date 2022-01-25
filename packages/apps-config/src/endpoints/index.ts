@@ -29,6 +29,24 @@ export function createWsEndpoints (t: TFunction, firstOnly = false, withSort = t
       textBy: '',
       value: ''
     },
+    // ...createCustom(t),
+    // {
+    //   isDisabled: false,
+    //   isHeader: true,
+    //   isSpaced: true,
+    //   text: t('rpc.header.selendra.relay', 'Selendra & parachains', { ns: 'apps-config' }),
+    //   textBy: '',
+    //   value: ''
+    // },
+    // ...createSelendraRelay(t, firstOnly, withSort),
+    // {
+    //   isDisabled: false,
+    //   isHeader: true,
+    //   isSpaced: true,
+    //   text: t('rpc.header.selendraTesnet.relay', 'SelendraTesnet & parachains', { ns: 'apps-config' }),
+    //   textBy: '',
+    //   value: ''
+    // },
     ...createSelendraTestnetRelay(t, firstOnly, withSort),
     {
       isDisabled: false,

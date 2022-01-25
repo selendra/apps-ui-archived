@@ -20,7 +20,7 @@ export function createSelendra (t: TFunction): EndpointOption {
     info: 'Selendra',
     text: t('rpc.selendra.selendra-chain', 'Selendra', { ns: 'apps-config' }),
     providers: {
-      Selendra: 'wss://selendra-rpc.selendra.org',
+      Selendra: 'wss://rpc1-testnet.selendra.org'
     },
     teleport: [1000],
     linked: [
@@ -32,7 +32,7 @@ export function createSelendra (t: TFunction): EndpointOption {
         paraId: 1000,
         text: t('rpc.selendra.indra', 'Indra', { ns: 'apps-config' }),
         providers: {
-          selendra: 'wss://indra-rpc.selendra.org',
+          selendra: 'wss://indra-testnet.selendra.org'
         },
         teleport: [-1]
       },

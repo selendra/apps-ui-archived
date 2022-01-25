@@ -168,17 +168,18 @@ function Teleport ({ onClose }: Props): React.ReactElement<Props> | null {
             onChange={setAmount}
           />
           {destApi
-            ? (
-              <>
-                <InputBalance
-                  defaultValue={destApi.consts.balances.existentialDeposit}
-                  isDisabled
-                  label={t<string>('destination existential deposit')}
-                />
-              </>
-            )
-            : 
-            (
+            ? destApi.consts.balances
+              ? (
+                <>
+                  <InputBalance
+                    defaultValue={destApi.consts.balances.existentialDeposit}
+                    isDisabled
+                    label={t<string>('destination existential deposit')}
+                  />
+                </>
+              )
+              : null
+            : (
               <Spinner
                 label={t<string>('Retrieving destination chain fees')}
                 variant='appPadded'

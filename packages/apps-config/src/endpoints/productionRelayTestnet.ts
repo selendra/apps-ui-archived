@@ -4,7 +4,7 @@
 import type { TFunction } from 'i18next';
 import type { EndpointOption } from './types';
 
-import { SELENRATESTNET_GENENSIS } from '../api/constants';
+import { SELENDRA_GENESIS } from '../api/constants';
 
 /* eslint-disable sort-keys */
 
@@ -16,12 +16,11 @@ import { SELENRATESTNET_GENENSIS } from '../api/constants';
 export function createSelendraTestnet (t: TFunction): EndpointOption {
   return {
     dnslink: 'Selendra',
-    genesisHash: SELENRATESTNET_GENENSIS,
+    genesisHash: SELENDRA_GENESIS,
     info: 'Selendra',
     text: t('rpc.selendra.selendra-chain', 'Selendra', { ns: 'apps-config' }),
     providers: {
-      Selendra: 'wss://rpc1-testnet.selendra.org',
-      Local: 'ws://127.0.0.1:9944',
+      Selendra: 'wss://rpc1-testnet.selendra.org'
     },
     teleport: [1000],
     linked: [
@@ -33,8 +32,7 @@ export function createSelendraTestnet (t: TFunction): EndpointOption {
         paraId: 1000,
         text: t('rpc.selendra.indra', 'Indra', { ns: 'apps-config' }),
         providers: {
-          selendra: 'wss://indra-testnet.selendra.org',
-          Local: "ws://127.0.0.1:8844"
+          selendra: 'wss://indra-testnet.selendra.org'
         },
         teleport: [-1]
       },
