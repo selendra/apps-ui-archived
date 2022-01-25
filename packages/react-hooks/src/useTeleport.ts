@@ -1,4 +1,4 @@
-// Copyright 2017-2021 @polkadot/react-hooks authors & contributors
+// Copyright 2017-2022 @polkadot/react-hooks authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { LinkOption } from '@polkadot/apps-config/endpoints/types';
@@ -26,7 +26,7 @@ interface ExtLinkOption extends LinkOption {
 }
 
 const DEFAULT_STATE: Teleport = {
-  allowTeleport: false,
+  allowTeleport: true,
   destinations: [],
   oneWay: []
 };
