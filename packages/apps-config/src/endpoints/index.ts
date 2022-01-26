@@ -7,6 +7,7 @@ import type { LinkOption } from './types';
 import { createCustom, createDev, createOwn } from './development';
 import { createSelendraTestnetRelay, createSelendraRelay } from './productionRelays';
 
+
 export { CUSTOM_ENDPOINT_KEY } from './development';
 
 export function createWsEndpoints (t: TFunction, firstOnly = false, withSort = true): LinkOption[] {
@@ -29,26 +30,9 @@ export function createWsEndpoints (t: TFunction, firstOnly = false, withSort = t
       textBy: '',
       value: ''
     },
-    // ...createCustom(t),
-    // {
-    //   isDisabled: false,
-    //   isHeader: true,
-    //   isSpaced: true,
-    //   text: t('rpc.header.selendra.relay', 'Selendra & parachains', { ns: 'apps-config' }),
-    //   textBy: '',
-    //   value: ''
-    // },
-    // ...createSelendraRelay(t, firstOnly, withSort),
-    // {
-    //   isDisabled: false,
-    //   isHeader: true,
-    //   isSpaced: true,
-    //   text: t('rpc.header.selendraTesnet.relay', 'SelendraTesnet & parachains', { ns: 'apps-config' }),
-    //   textBy: '',
-    //   value: ''
-    // },
     ...createSelendraTestnetRelay(t, firstOnly, withSort),
     {
+      isDevelopment: true,
       isDisabled: false,
       isHeader: true,
       isSpaced: true,
@@ -56,7 +40,7 @@ export function createWsEndpoints (t: TFunction, firstOnly = false, withSort = t
       textBy: '',
       value: ''
     },
+    ...createOwn(t),
     ...createDev(t),
-    ...createOwn(t)
   ].filter(({ isDisabled }) => !isDisabled);
 }
