@@ -30,7 +30,7 @@ export function createSelendra (t: TFunction): EndpointOption {
     //     paraId: 1000,
     //     text: t('rpc.selendra.indracore', 'Indracore', { ns: 'apps-config' }),
     //     providers: {
-    //       Parity: 'wss://indra-mainnet.selendra.org',
+    //       Selendra: 'wss://indra-mainnet.selendra.org',
     //     },
     //     teleport: [-1]
     //   },

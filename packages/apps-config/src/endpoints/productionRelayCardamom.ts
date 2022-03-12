@@ -21,8 +21,9 @@ export function createCardamom (t: TFunction): EndpointOption {
     text: t('rpc.cardamom.selendra', 'Cardamom', { ns: 'apps-config' }),
     providers: {
       Selendra: 'wss://rpc1-testnet.selendra.org',
+      // Local: 'ws://127.0.0.1:9944'
     },
-    teleport: [1000],
+    teleport: [1000, 1001],
     linked: [
       {
         info: 'indranet',
@@ -30,6 +31,16 @@ export function createCardamom (t: TFunction): EndpointOption {
         text: t('rpc.cardamom.indranet', 'Indranet', { ns: 'apps-config' }),
         providers: {
           Selendra: 'wss://indra-testnet.selendra.org',
+          // Local: 'ws://127.0.0.1:8844'
+        },
+        teleport: [-1]
+      },
+      {
+        info: 'indradent',
+        paraId: 1001,
+        text: t('rpc.cardamom.indradent', 'Indradent', { ns: 'apps-config' }),
+        providers: {
+          Selendra: 'wss://indradent.selendra.org',
         },
         teleport: [-1]
       },

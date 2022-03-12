@@ -205,6 +205,7 @@ const nodeZCloak = 'linear-gradient(to right, #E89A76 0%, #C5B8CC 50%, #B0B4D7 1
 const nodeselendra = '#03A9F4';
 const nodecardamom = '#FF00FF';
 const nodeindra = '#00FF00';
+const nodeindradent= " 	#B22222";
 
 // based on the spec name
 const specShell = '#2e86ab'; // '#0596FC';
@@ -403,7 +404,9 @@ export const chainColors: Record<string, string> = Object.entries({
   selendra: nodeselendra,
   cardamom: nodecardamom,
   indracore: nodeindra,
-  indranet: nodeindra
+  indranet: nodeindra,
+  indradent: nodeindradent,
+  indradentTestnet: nodeindradent
 }).reduce<Record<string, string>>((colors, [chain, color]) => ({
   ...colors,
   [sanitize(chain)]: color
@@ -501,7 +504,9 @@ export const nodeColors = Object.entries({
   selendra: nodeselendra,
   cardamom: nodecardamom,
   indracore: nodeindra,
-  indranet: nodeindra
+  indranet: nodeindra,
+  indradent: nodeindradent,
+  indradentTestnet: nodeindradent
 }).reduce<Record<string, string>>((colors, [node, color]) => ({
   ...colors,
   [sanitize(node)]: color
@@ -517,7 +522,9 @@ export const specColors = Object.entries({
   selendra: nodeselendra,
   cardamom: nodecardamom,
   indracore: nodeindra,
-  indranet: nodeindra
+  indranet: nodeindra,
+  indradent: nodeindradent,
+  indradentTestnet: nodeindradent
 }).reduce<Record<string, string>>((colors, [spec, color]) => ({
   ...colors,
   [sanitize(spec)]: color

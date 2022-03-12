@@ -175,6 +175,7 @@ import nodeZenlink from './nodes/zenlink.svg';
 import nodeZero from './nodes/zero.svg';
 import emptyLogo from './empty.svg';
 import selendraLogo from './nodes/selendra.jpg';
+import indradentLogo from './nodes/indradent.png';
 import CardamomLogo from './nodes/cardamom.png';
 import IndraLogo from './nodes/indra.png';
 // last-resort fallback, just something empty
@@ -345,7 +346,9 @@ export const chainLogos = Object.entries({
   selendra: selendraLogo,
   cardamom: CardamomLogo,
   indracore: IndraLogo,
-  indranet: IndraLogo
+  indranet: IndraLogo,
+  indradent: indradentLogo,
+  indradentTestnet: indradentLogo
 }).reduce<Record<string, unknown>>((logos, [chain, logo]) => ({
   ...logos,
   [sanitize(chain)]: logo
@@ -522,7 +525,9 @@ export const nodeLogos = Object.entries({
   selendra: selendraLogo,
   cardamom: CardamomLogo,
   indracore: IndraLogo,
-  indranet: IndraLogo
+  indranet: IndraLogo,
+  indradent: indradentLogo,
+  indradentTestnet: indradentLogo
 }).reduce<Record<string, unknown>>((logos, [node, logo]) => ({
   ...logos,
   [sanitize(node)]: logo
@@ -752,7 +757,9 @@ export const namedLogos: Record<string, unknown> = {
   selendra: selendraLogo,
   cardamom: CardamomLogo,
   indracore: IndraLogo,
-  indranet: IndraLogo
+  indranet: IndraLogo,
+  indradent: indradentLogo,
+  indradentTestnet: indradentLogo
 };
 
 // extension logos

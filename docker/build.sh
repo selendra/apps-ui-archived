@@ -7,7 +7,7 @@
 set -e
 
 # the docker image name and dockerhub repo
-NAME="polkadot-js-apps"
+NAME="selendra-app"
 REPO="jacogr"
 
 # extract the current npm version from package.json
@@ -31,3 +31,6 @@ docker tag $NAME $REPO/$NAME
 
 echo "*** Publishing $NAME"
 docker push $REPO/$NAME
+
+
+# selendrachain/selendra-app:latestdocker run -it -d --name selendra-ui -p 8088:80 selendrachain/selendra-app:latest
