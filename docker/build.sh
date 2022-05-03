@@ -8,7 +8,7 @@ set -e
 
 # the docker image name and dockerhub repo
 NAME="selendra-app"
-REPO="jacogr"
+REPO="selendrachain"
 
 # extract the current npm version from package.json
 VERSION=$(cat package.json \
@@ -19,7 +19,7 @@ VERSION=$(cat package.json \
   | sed 's/ //g')
 
 echo "*** Building $NAME"
-docker build -t $NAME -f docker/Dockerfile .
+docker build -t $REPO/$NAME -f docker/Dockerfile .
 
 docker login -u $REPO -p $DOCKER_PASS
 

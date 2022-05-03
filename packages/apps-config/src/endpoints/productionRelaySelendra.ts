@@ -21,7 +21,7 @@ export function createSelendra (t: TFunction): EndpointOption {
     text: t('rpc.selendra.parity', 'Selendra', { ns: 'apps-config' }),
     providers: {
       'Selendra 1': 'wss://rpc-mainnet.selendra.org',
-      'Selendra 2': 'wss://rpc1-mainnet.selendra.org',
+      'Selendra 2': 'wss://api-mainnet.selendra.org',
     },
     // teleport: [1000],
     // linked: [

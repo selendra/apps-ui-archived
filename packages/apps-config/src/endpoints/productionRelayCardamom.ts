@@ -35,15 +35,15 @@ export function createCardamom (t: TFunction): EndpointOption {
         },
         teleport: [-1]
       },
-      {
-        info: 'indradent',
-        paraId: 1001,
-        text: t('rpc.cardamom.indradent', 'Indradent', { ns: 'apps-config' }),
-        providers: {
-          Selendra: 'wss://indradent.selendra.org',
-        },
-        teleport: [-1]
-      },
+      // {
+      //   info: 'indradent',
+      //   paraId: 1001,
+      //   text: t('rpc.cardamom.indradent', 'Indradent', { ns: 'apps-config' }),
+      //   providers: {
+      //     Selendra: 'wss://indradent.selendra.org',
+      //   },
+      //   teleport: [-1]
+      // },
     ]
   };
 }
