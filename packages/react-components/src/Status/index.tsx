@@ -25,6 +25,7 @@ function iconName (status: string): IconName {
       return 'ban';
 
     case 'event':
+    case 'eventWarn':
       return 'assistive-listening-systems';
 
     case 'received':
@@ -179,7 +180,7 @@ function Status ({ className = '' }: Props): React.ReactElement<Props> | null {
 }
 
 export default React.memo(styled(Status)`
-  bottom: 0;
+  /* bottom: 0; */
   display: inline-block;
   overflow: hidden;
   position: fixed;
@@ -250,6 +251,18 @@ export default React.memo(styled(Status)`
           color: white !important;
           line-height: 1;
         }
+
+        .ui--Spinner {
+          display: inline-block;
+          height: 1em;
+          line-height: 1;
+          vertical-align: -0.125em;
+
+          img {
+            height: 1em;
+            width: 1em;
+          }
+        }
       }
 
       .padded {
@@ -270,6 +283,10 @@ export default React.memo(styled(Status)`
 
     &.event > .wrapper > .container {
       background: teal;
+    }
+
+    &.eventWarn > .wrapper > .container {
+      background: darkorange;
     }
 
     &.completed,

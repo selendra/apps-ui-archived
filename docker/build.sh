@@ -7,8 +7,8 @@
 set -e
 
 # the docker image name and dockerhub repo
-NAME="selendra-js-apps"
-REPO="selendrachain"
+NAME="polkadot-js-apps"
+REPO="jacogr"
 
 # extract the current npm version from package.json
 VERSION=$(cat package.json \

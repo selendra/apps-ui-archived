@@ -1,36 +1,36 @@
 // Copyright 2017-2022 @polkadot/apps-config authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
-import type { TFunction } from 'i18next';
+import type { TFunction } from '../types';
 import type { LinkOption } from './types';
 
+import { defaultT } from '../util';
 import { createCustom, createDev, createOwn } from './development';
-import { createSelendraTestnetRelay, createSelendraRelay } from './productionRelays';
-
+import { prodRelayCardamom, prodRelaySelendra } from './production';
+import { expandEndpoints } from './util';
 
 export { CUSTOM_ENDPOINT_KEY } from './development';
 
-export function createWsEndpoints (t: TFunction, firstOnly = false, withSort = true): LinkOption[] {
+export function createWsEndpoints (t: TFunction = defaultT, firstOnly = false, withSort = true): LinkOption[] {
   return [
     ...createCustom(t),
     {
       isDisabled: false,
       isHeader: true,
       isSpaced: true,
-      text: t('rpc.header.selendra.relay', 'Selendra & parachains', { ns: 'apps-config' }),
+      text: t('rpc.header.Selendra.relay', 'Selendra & parachains', { ns: 'apps-config' }),
       textBy: '',
       value: ''
     },
-    ...createSelendraRelay(t, firstOnly, withSort),
+    ...expandEndpoints(t, [prodRelaySelendra], firstOnly, withSort),
     {
       isDisabled: false,
       isHeader: true,
-      isSpaced: true,
-      text: t('rpc.header.selendraTesnet.relay', 'SelendraTesnet & parachains', { ns: 'apps-config' }),
+      text: t('rpc.header.Cardamom.relay', 'Cardamom & parachains (Testnet)', { ns: 'apps-config' }),
       textBy: '',
       value: ''
     },
-    ...createSelendraTestnetRelay(t, firstOnly, withSort),
+    ...expandEndpoints(t, [prodRelayCardamom], firstOnly, withSort),
     {
       isDevelopment: true,
       isDisabled: false,
@@ -40,7 +40,7 @@ export function createWsEndpoints (t: TFunction, firstOnly = false, withSort = t
       textBy: '',
       value: ''
     },
-    ...createOwn(t),
     ...createDev(t),
+    ...createOwn(t)
   ].filter(({ isDisabled }) => !isDisabled);
 }

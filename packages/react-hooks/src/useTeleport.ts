@@ -26,7 +26,7 @@ interface ExtLinkOption extends LinkOption {
 }
 
 const DEFAULT_STATE: Teleport = {
-  allowTeleport: true,
+  allowTeleport: false,
   destinations: [],
   oneWay: []
 };
