@@ -8,6 +8,7 @@
 
 // anything for a specific chain, most would probably fit into the node category (but allow for chain-specific)
 // alphabetical
+// eslint-disable-next-line simple-import-sort/imports
 import { sanitize } from '../util';
 import chainAcala from './chains/acala.svg';
 import chainAleph from './chains/aleph.svg';
@@ -51,6 +52,7 @@ import externalDotScanner from './external/dotscanner.png';
 import externalPolkascan from './external/polkascan.png';
 import externalPolkassembly from './external/polkassembly.png';
 import externalPolkastats from './external/polkastats.png';
+import externalSelendra from './external/selendraExplorer.jpg';
 import externalSingular from './external/singular.svg';
 import externalStatescan from './external/statescan.svg';
 import externalSubId from './external/subid.svg';
@@ -343,10 +345,13 @@ export const chainLogos = Object.entries({
   'Westmint Test': nodeStatemine,
   WILT: nodeKilt,
   'zcloak poc1': nodeZCloak,
+  // eslint-disable-next-line sort-keys
   selendra: selendraLogo,
+  // eslint-disable-next-line sort-keys
   cardamom: CardamomLogo,
   indracore: IndraLogo,
   indranet: IndraLogo,
+  // eslint-disable-next-line sort-keys
   indradent: indradentLogo,
   indradentTestnet: indradentLogo
 }).reduce<Record<string, unknown>>((logos, [chain, logo]) => ({
@@ -775,11 +780,13 @@ export const externalLogos: Record<string, unknown> = {
   polkascan: externalPolkascan,
   polkassembly: externalPolkassembly,
   polkastats: externalPolkastats,
+  selendra: externalSelendra,
   singular: externalSingular,
   statescan: externalStatescan,
   subid: externalSubId,
   subscan: externalSubscan,
   subsquare: externalSubsquare
+
 };
 
 // empty logos

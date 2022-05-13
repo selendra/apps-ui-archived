@@ -442,10 +442,13 @@ export const chainColors: Record<string, string> = Object.entries({
   'zcloak poc1': nodeZCloak,
   'Zenlink PC1': chainZenlink,
   'ZERO.IO': chainZero,
+  // eslint-disable-next-line sort-keys
   selendra: nodeselendra,
+  // eslint-disable-next-line sort-keys
   cardamom: nodecardamom,
   indracore: nodeindra,
   indranet: nodeindra,
+  // eslint-disable-next-line sort-keys
   indradent: nodeindradent,
   indradentTestnet: nodeindradent
 }).reduce<Record<string, string>>((colors, [chain, color]) => ({
@@ -553,10 +556,13 @@ export const nodeColors = Object.entries({
   'Zeitgeist Collator': nodeZeitgeist,
   'Zeitgeist Node': nodeZeitgeist,
   'Zenlink Collator': nodeZenlink,
+  // eslint-disable-next-line sort-keys
   selendra: nodeselendra,
+  // eslint-disable-next-line sort-keys
   cardamom: nodecardamom,
   indracore: nodeindra,
   indranet: nodeindra,
+  // eslint-disable-next-line sort-keys
   indradent: nodeindradent,
   indradentTestnet: nodeindradent
 }).reduce<Record<string, string>>((colors, [node, color]) => ({
@@ -571,10 +577,13 @@ export const specColors = Object.entries({
   statemine: specStatemine,
   statemint: specStatemint,
   westmint: specWestmint,
+  // eslint-disable-next-line sort-keys
   selendra: nodeselendra,
+  // eslint-disable-next-line sort-keys
   cardamom: nodecardamom,
   indracore: nodeindra,
   indranet: nodeindra,
+  // eslint-disable-next-line sort-keys
   indradent: nodeindradent,
   indradentTestnet: nodeindradent
 }).reduce<Record<string, string>>((colors, [spec, color]) => ({

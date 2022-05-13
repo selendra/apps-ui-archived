@@ -10,6 +10,7 @@ import KodaDot from './kodadot';
 import Polkascan from './polkascan';
 import { PolkassemblyIo, PolkassemblyNetwork } from './polkassembly';
 import Polkastats from './polkastats';
+import SelendraScan from './selendraScan';
 import Singular from './singular';
 import Statescan from './statescan';
 import SubId from './subid';
@@ -25,6 +26,7 @@ export const externalLinks: Record<string, ExternalDef> = {
   PolkassemblyIo,
   PolkassemblyNetwork,
   Polkastats,
+  SelendraScan,
   'Singular (NFTs)': Singular,
   Statescan,
   SubId,
