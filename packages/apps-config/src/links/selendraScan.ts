@@ -11,14 +11,14 @@ export default {
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   create: (_chain: string, path: string, data: BN | number | string): string =>
-    `https://explorer.selendra.org/${path}`,
+    `https://explorer.selendra.org/${path}/${data.toString()}`,
   isActive: true,
   logo: externalLogos.selendra as string,
   paths: {
     address: 'accounts',
     block: 'blocks',
     extrinsic: 'extrinsics',
-    validator: 'staking'
+    validator: 'validator'
   },
   url: 'https://explorer.selendra.org/'
 };
