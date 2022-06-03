@@ -9,7 +9,7 @@ import React, { useMemo } from 'react';
 import styled from 'styled-components';
 
 import { useApi } from '@polkadot/react-hooks';
-import { formatBalance, isString } from '@polkadot/util';
+import { formatBalance, isString } from '../../@polkadot/util';
 
 import { useTranslation } from './translate';
 
