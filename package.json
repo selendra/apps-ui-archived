@@ -109,7 +109,7 @@
     "@polkadot/types-create": "^8.3.2",
     "@polkadot/types-known": "^8.3.2",
     "@polkadot/types-support": "^8.3.2",
-    "@polkadot/util": "^9.1.1",
+    "@polkadot/util": "node_modules/@polkadot/util",
     "@polkadot/util-crypto": "^9.1.1",
     "@polkadot/wasm-crypto": "^6.0.1",
     "babel-core": "^7.0.0-bridge.0",

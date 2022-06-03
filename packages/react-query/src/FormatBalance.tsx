@@ -48,7 +48,7 @@ function getFormat (registry: Registry, formatIndex = 0): [number, string] {
 }
 
 function createElement (prefix: string, postfix: string, unit: string, label: LabelPost = '', isShort = false): React.ReactNode {
-  return <>{`${prefix}${isShort ? '' : '.'}`}{!isShort && <span className='ui--FormatBalance-postfix'>{`0000${postfix || ''}`.slice(-4)}</span>}<span className='ui--FormatBalance-unit'> {unit}</span>{label}</>;
+  return <>{`${prefix}${isShort ? '' : '.'}`}{!isShort && <span className='ui--FormatBalance-postfix'>{`0000${postfix || ''}`.slice(-6)}</span>}<span className='ui--FormatBalance-unit'> {unit}</span>{label}</>;
 }
 
 function splitFormat (value: string, label?: LabelPost, isShort?: boolean): React.ReactNode {
