@@ -33,7 +33,7 @@ export const prodRelayCardamom: EndpointOption = {
   info: 'cardamom',
   text: 'Cardamom',
   providers: {
-    Selendra: 'wss://rpc1-testnet.selendra.org'
+    Selendra: 'wss://rpc-testnet.selendra.org'
   },
   teleport: [1000],
   linked: [
