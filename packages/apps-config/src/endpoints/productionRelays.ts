@@ -5,13 +5,9 @@ import type { TFunction } from 'i18next';
 import type { LinkOption } from './types';
 
 import { createSelendraTestnet } from './productionRelayTestnet';
-import { createSelendra } from './productionRelayMainet';
 import { expandEndpoints } from './util';
 
-export function createSelendraTestnetRelay (t: TFunction, firstOnly: boolean, withSort: boolean): LinkOption[] {
+export function createSelendraTestnetRelay(t: TFunction, firstOnly: boolean, withSort: boolean): LinkOption[] {
   return expandEndpoints(t, [createSelendraTestnet(t)], firstOnly, withSort);
 }
 
-export function createSelendraRelay (t: TFunction, firstOnly: boolean, withSort: boolean): LinkOption[] {
-  return expandEndpoints(t, [createSelendra(t)], firstOnly, withSort);
-}
