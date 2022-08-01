@@ -40,15 +40,15 @@ import { SELENDRA_GENESIS } from '../api/constants';
 //   };
 // }
 
-export function createSelendraTestnet(t: TFunction): EndpointOption {
+export function createSelendraMainnet(t: TFunction): EndpointOption {
   return {
     dnslink: 'Selendra',
     genesisHash: SELENDRA_GENESIS,
     info: 'Selendra',
-    text: t('Selendra Testnet'),
+    text: t('Selendra Mainnet'),
     providers: {
-      'Selendra 1': 'wss://rpc-testnet.selendra.org',
-      'Selendra 2': 'wss://rpc-testnet2.selendra.org'
+      'Selendra 1': 'wss://rpc-mainnet.selendra.org',
+      'Selendra 2': 'wss://rpc-mainnet2.selendra.org'
     },
     teleport: [1000],
   };

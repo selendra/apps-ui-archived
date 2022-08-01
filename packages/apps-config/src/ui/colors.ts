@@ -191,7 +191,7 @@ const nodeZero = '#0099cc';
 const nodeZenlink = 'linear-gradient(45deg, #F20082 0%, #FF4D4D 100%)';
 const nodeSubGame = '#EB027D';
 const nodeZCloak = 'linear-gradient(to right, #E89A76 0%, #C5B8CC 50%, #B0B4D7 100%)';
-const chainSelendra = '#db0f74';
+const chainSelendra = '#03A9F4';
 
 // based on the spec name
 const specShell = '#2e86ab'; // '#0596FC';

@@ -16,7 +16,7 @@ export function createWsEndpoints(t: TFunction, firstOnly = false, withSort = tr
       isDisabled: false,
       isHeader: true,
       isSpaced: true,
-      text: t('rpc.header.selendra.relay', 'Selendra Testnet', { ns: 'apps-config' }),
+      text: t('rpc.header.selendra.relay', 'Selendra Mainnet', { ns: 'apps-config' }),
       textBy: '',
       value: ''
     },
