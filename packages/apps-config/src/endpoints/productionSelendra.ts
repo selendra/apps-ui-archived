@@ -15,29 +15,29 @@ import { SELENDRA_GENESIS } from '../api/constants';
 //
 // IMPORTANT: Alphabetical based on text
 
-export const prodParasSelendraCommon: EndpointOption[] = [
-  {
-    info: 'indracore',
-    paraId: 1000,
-    text: 'Indracore',
-    teleport: [-1],
-    providers: {
-      Selendra: 'wss://indracore.selendra.org'
-    }
-  }
-];
+// export const prodParasSelendraCommon: EndpointOption[] = [
+//   {
+//     info: 'indracore',
+//     paraId: 1000,
+//     text: 'Indracore',
+//     teleport: [-1],
+//     providers: {
+//       Selendra: 'wss://indracore.selendra.org'
+//     }
+//   }
+// ];
 
-export const prodRelaySelendra: EndpointOption = {
+export const prodSelendra: EndpointOption = {
   dnslink: 'selendra',
   genesisHash: SELENDRA_GENESIS,
   info: 'selendra',
   text: 'Selendra',
   providers: {
     'Selendra 1': 'wss://rpc-mainnet.selendra.org',
-    'Selendra 2': 'wss://api-mainnet.selendra.org'
+    'Selendra 2': 'wss://rpc-mainnet2.selendra.org'
   },
   teleport: [1000],
-  linked: [
-    ...prodParasSelendraCommon
-  ]
+  // linked: [
+  //   ...prodParasSelendraCommon
+  // ]
 };

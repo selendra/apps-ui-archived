@@ -6,31 +6,31 @@ import type { LinkOption } from './types';
 
 import { defaultT } from '../util';
 import { createCustom, createDev, createOwn } from './development';
-import { prodRelayCardamom, prodRelaySelendra } from './production';
+import { prodSelendra } from './production';
 import { expandEndpoints } from './util';
 
 export { CUSTOM_ENDPOINT_KEY } from './development';
 
-export function createWsEndpoints (t: TFunction = defaultT, firstOnly = false, withSort = true): LinkOption[] {
+export function createWsEndpoints(t: TFunction = defaultT, firstOnly = false, withSort = true): LinkOption[] {
   return [
     ...createCustom(t),
     {
       isDisabled: false,
       isHeader: true,
       isSpaced: true,
-      text: t('rpc.header.Selendra.relay', 'Selendra & parachains', { ns: 'apps-config' }),
+      text: t('rpc.header.Selendra.relay', 'Selendra Mainnet', { ns: 'apps-config' }),
       textBy: '',
       value: ''
     },
-    ...expandEndpoints(t, [prodRelaySelendra], firstOnly, withSort),
-    {
-      isDisabled: false,
-      isHeader: true,
-      text: t('rpc.header.Cardamom.relay', 'Cardamom & parachains (Testnet)', { ns: 'apps-config' }),
-      textBy: '',
-      value: ''
-    },
-    ...expandEndpoints(t, [prodRelayCardamom], firstOnly, withSort),
+    ...expandEndpoints(t, [prodSelendra], firstOnly, withSort),
+    // {
+    //   isDisabled: false,
+    //   isHeader: true,
+    //   text: t('rpc.header.Cardamom.relay', 'Cardamom & parachains (Testnet)', { ns: 'apps-config' }),
+    //   textBy: '',
+    //   value: ''
+    // },
+    // ...expandEndpoints(t, [prodRelayCardamom], firstOnly, withSort),
     {
       isDevelopment: true,
       isDisabled: false,
