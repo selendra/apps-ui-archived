@@ -33,8 +33,8 @@ export const prodSelendra: EndpointOption = {
   info: 'selendra',
   text: 'Selendra',
   providers: {
-    'Selendra 1': 'wss://rpc-mainnet.selendra.org',
-    'Selendra 2': 'wss://rpc-mainnet2.selendra.org'
+    'Selendra 1': 'wss://rpc-testnet.selendra.org',
+    'Selendra 2': 'wss://rpc-testnet.selendra.org'
   },
   teleport: [1000],
   // linked: [
