@@ -29,7 +29,7 @@ const KNOWN_PARAMS: Record<string, InflationParams> = {
   [NEATCOIN_GENESIS]: { ...DEFAULT_PARAMS, stakeTarget: 0.75 },
   [NFTMART_GENESIS]: { ...DEFAULT_PARAMS, falloff: 0.04, stakeTarget: 0.60 },
   [POLKADOT_GENESIS]: { ...DEFAULT_PARAMS, stakeTarget: 0.75 },
-  [SELENDRA_GENESIS]: { ...DEFAULT_PARAMS, falloff: 0.05, maxInflation: 0.044, stakeTarget: 0.75 }
+  [SELENDRA_GENESIS]: { ...DEFAULT_PARAMS, minInflation: 0.0025, maxInflation: 0.025 }
 };
 
 export function getInflationParams (api: ApiPromise): InflationParams {
